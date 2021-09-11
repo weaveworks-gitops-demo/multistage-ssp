@@ -17,7 +17,4 @@ variable "production_asg_max_size" { type = number }
 
 variable "repository_owner" { type = string }
 variable "repository_name" { type = string }
-variable "private_key" { type = string }
-variable "known_hosts" { type = string }
-variable "path" { type = string }
 variable "branch" { type = string }

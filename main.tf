@@ -33,7 +33,6 @@ module "dev_stage" {
   kubernetes_version  = var.kubernetes_version
   instance_type  = var.development_instance_type
   asg_max_size  = var.development_asg_max_size
-  application_name  = "ssp"
   git_repository  = "ssh://git@github.com/${var.repository_owner}/${var.repository_name}"
   private_key  = file("./key.pem")
   known_hosts  = file("./known_hosts")
@@ -53,9 +52,8 @@ module "uat_stage" {
   kubernetes_version  = var.kubernetes_version
   instance_type  = var.development_instance_type
   asg_max_size  = var.development_asg_max_size
-  application_name  = "ssp"
   git_repository  = "ssh://git@github.com/${var.repository_owner}/${var.repository_name}"
-  private_key  = file("./private.pem")
+  private_key  = file("./key.pem")
   known_hosts  = file("./known_hosts")
   path  = "./environments/prod"
   branch  = "main"
@@ -73,9 +71,8 @@ module "prod_stage" {
   kubernetes_version  = var.kubernetes_version
   instance_type  = var.development_instance_type
   asg_max_size  = var.development_asg_max_size
-  application_name  = "ssp"
   git_repository  = "ssh://git@github.com/${var.repository_owner}/${var.repository_name}"
-  private_key  = file("./private.pem")
+  private_key  = file("./key.pem")
   known_hosts  = file("./known_hosts")
   path  = "./environments/prod"
   branch  = "main"
