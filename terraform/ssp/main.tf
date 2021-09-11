@@ -29,9 +29,9 @@ module "vpc" {
   }
 }
 
-module "management-cluster" {
+module "eks-cluster" {
   source          = "terraform-aws-modules/eks/aws"
-  cluster_name    = "management-cluster"
+  cluster_name    = "${var.owner}-${var.stage}-eks"
   cluster_version = var.kubernetes_version
   subnets         = module.vpc.public_subnets
   vpc_id          = module.vpc.vpc_id
@@ -45,11 +45,11 @@ module "management-cluster" {
 }
 
 data "aws_eks_cluster" "cluster" {
-  name = module.management-cluster.cluster_id
+  name = module.eks-cluster.cluster_id
 }
 
 data "aws_eks_cluster_auth" "cluster" {
-  name = module.management-cluster.cluster_id
+  name = module.eks-cluster.cluster_id
 }
 
 provider "kubernetes" {

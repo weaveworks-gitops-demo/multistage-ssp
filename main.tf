@@ -16,7 +16,7 @@ provider "aws" {
 
 resource "github_repository_deploy_key" "ssp_repository_deploy_key" {
   title      = "Deployment Key for SSP Repository"
-  repository = var.repository_name
+  repository = "${var.repository_owner}/${var.repository_name}"
   key        = file("./key.pem.pub")
   read_only  = "false"
 }
