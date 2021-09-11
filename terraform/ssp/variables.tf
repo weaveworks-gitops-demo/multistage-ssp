@@ -1,0 +1,15 @@
+variable "region" { type = string }
+variable "stage" { type = string }
+variable "owner" { type = string }
+variable "vpc_cidr" { type = string }
+variable "private_subnet_cidrs" { type = list(string) }
+variable "public_subnet_cidrs" { type = list(string) }
+variable "availability_zones" { type = list(string) }
+variable "kubernetes_version" { type = string }
+variable "instance_type" { type = string }
+variable "asg_max_size" { type = number }
+variable "git_repository" { type = string }
+variable "private_key" { type = string }
+variable "known_hosts" { type = string }
+variable "path" { type = string }
+variable "branch" { type = string }
