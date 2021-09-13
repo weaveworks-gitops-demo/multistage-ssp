@@ -43,7 +43,7 @@ module "dev_stage" {
 module "prod_stage" {
   source = "./terraform/ssp"
   region  = var.region
-  stage  = "prod"
+  stage  = "production"
   owner  = var.owner
   vpc_cidr  = var.vpc_cidr
   private_subnet_cidrs  = var.private_subnet_cidrs

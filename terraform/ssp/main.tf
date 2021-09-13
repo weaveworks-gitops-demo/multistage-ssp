@@ -76,6 +76,9 @@ resource "helm_release" "wego-core" {
 }
 
 resource "helm_release" "ssp-bootstrap" {
+  depends_on = [
+    helm_release.wego_core
+  ]
   name       = "wego-app"
   repository = "https://weaveworks.github.io/weave-gitops-ssp-addon/helm"
   chart      = "wego-app"
