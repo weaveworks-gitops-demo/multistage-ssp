@@ -29,7 +29,8 @@ TERRAFORM_VER=`curl -s https://api.github.com/repos/hashicorp/terraform/releases
 wget https://releases.hashicorp.com/terraform/${TERRAFORM_VER}/terraform_${TERRAFORM_VER}_linux_amd64.zip
 sudo yum -y install unzip
 unzip terraform_${TERRAFORM_VER}_linux_amd64.zip
-sudo mv terraform /usr/local/bin/
+sudo mv terraform /usr/local/bin/terraform
+rm -rf terraform_${TERRAFORM_VER}_linux_amd64.zip
 
 echo ""
 echo "Generating key pair:"
