@@ -21,7 +21,7 @@ module "vpc" {
   public_subnets  = var.public_subnet_cidrs
 
   enable_nat_gateway = true
-  enable_vpn_gateway = true
+  one_nat_gateway_per_az = true
 
   tags = {
     Terraform = "true"
